@@ -77,7 +77,7 @@ async def start_booking(callback: CallbackQuery, state: FSMContext):
     data = await state.get_data()
     lang = get_user_lang(data)
 
-    free = storage.get_free_slots(SLOTS)
+    free = storage.get_free_slots()
     if not free:
         await callback.answer(t(lang, "no_slots"), show_alert=True)
         return
@@ -142,3 +142,4 @@ async def phone_entered(message: Message, state: FSMContext):
         ADMIN_ID,
         t("ru", "admin_new_booking", name=name, phone=phone, slot=slot, user_id=message.from_user.id)
     )
+
