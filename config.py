@@ -4,7 +4,7 @@ import os
 BOT_TOKEN = os.getenv("BOT_TOKEN", "8762200697:AAHdysGbNPumEDmltjPHdPZvYDBYlys3V1E")
 
 # Telegram ID жены (админа) — узнать можно через @userinfobot
-ADMIN_ID = int(os.getenv("ADMIN_ID", "8507430605"))
+ADMIN_ID = int(os.getenv("ADMIN_ID", "388585287"))
 
 # Доступные слоты для записи (можно редактировать)
 SLOTS = [
