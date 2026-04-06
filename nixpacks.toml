@@ -1,5 +1,0 @@
-[phases.install]
-cmds = ["pip install aiogram==3.13.1 asyncpg==0.29.0"]
-
-[start]
-cmd = "python bot.py"
