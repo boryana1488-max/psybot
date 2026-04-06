@@ -1,7 +1,7 @@
 import os
 
 BOT_TOKEN = os.getenv("BOT_TOKEN", "8762200697:AAHdysGbNPumEDmltjPHdPZvYDBYlys3V1E")
-WEBHOOK_HOST = os.getenv("WEBHOOK_HOST", "")  # https://your-app.railway.app
+WEBHOOK_HOST = os.getenv("WEBHOOK_HOST", "https://start-production-d65b.up.railway.app")  # https://your-app.railway.app
 WEBHOOK_PATH = "/webhook"
 WEBHOOK_URL = f"{WEBHOOK_HOST}{WEBHOOK_PATH}"
 
