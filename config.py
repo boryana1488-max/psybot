@@ -1,11 +1,11 @@
 import os
 
-BOT_TOKEN = os.getenv("BOT_TOKEN", "YOUR_BOT_TOKEN_HERE")
+BOT_TOKEN = os.getenv("BOT_TOKEN", "8762200697:AAHdysGbNPumEDmltjPHdPZvYDBYlys3V1E")
 WEBHOOK_HOST = os.getenv("WEBHOOK_HOST", "")  # https://your-app.railway.app
 WEBHOOK_PATH = "/webhook"
 WEBHOOK_URL = f"{WEBHOOK_HOST}{WEBHOOK_PATH}"
 
-_admin_raw = os.getenv("ADMIN_ID", "123456789")
+_admin_raw = os.getenv("ADMIN_ID", "388585287")
 ADMIN_ID = int(_admin_raw.strip())
 
 # Шаблоны слотов — только время и день недели (без конкретной даты)
