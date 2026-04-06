@@ -220,12 +220,11 @@ async def phone_entered(message: Message, state: FSMContext):
     username_line = f"@{username}" if username else "—"
     await message.bot.send_message(
         ADMIN_ID,
-        f"📬 Новая запись!
-
-"        f"👤 Имя: {name}
-"        f"📞 Телефон: {phone}
-"        f"📅 Время: {slot}
-"        f"🆔 ID: {message.from_user.id}
-"        f"✈️ Username: {username_line}
-"        f"🔗 Написать: {tg_link}"
+        f"📬 Новая запись!"        
+        f"👤 Имя: {name}"        
+        f"📞 Телефон: {phone}"        
+        f"📅 Время: {slot}"        
+        f"🆔 ID: {message.from_user.id}"        
+        f"✈️ Username: {username_line}"        
+        f"🔗 Написать: {tg_link}"
     )
