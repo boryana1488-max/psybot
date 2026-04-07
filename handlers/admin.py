@@ -707,17 +707,16 @@ async def adm_reply_send(message: Message, state: FSMContext):
     data = await state.get_data()
     uid = data.get("reply_target_uid")
     await state.clear()
+
     try:
         await message.bot.send_message(
             uid,
-            f"💬 Сообщение от психолога:
-
-{message.text}"
+            f"💬 Сообщение от психолога:\n\n{message.text}"
         )
         await message.answer("✅ Сообщение отправлено.", reply_markup=admin_menu_kb())
     except Exception:
-        await message.answer("❌ Не удалось отправить. Клиент мог заблокировать бота.", reply_markup=admin_menu_kb())
-
+        await message.answer("❌ Не удалось отправить. Клиент мог заблокировать бота.", 
+                             reply_markup=admin_menu_kb())
 
 # ── Диагностика ───────────────────────────────────────────────────────────────
 
