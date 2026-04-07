@@ -671,23 +671,19 @@ async def adm_complete_session(callback: CallbackQuery):
         callback_data="book"
     )
     review_kb.adjust(1)
+
     try:
         await callback.bot.send_message(
             b["user_id"],
-            ("💙 Сессия завершена! Спасибо за доверие.
-
-"
+            ("💙 Сессия завершена! Спасибо за доверие.\n\n"
              "Если хотите — оставьте отзыв или запишитесь на следующую сессию."
              if lang == "ru" else
-             "💙 Сесія завершена! Дякуємо за довіру.
-
-"
+             "💙 Сесія завершена! Дякуємо за довіру.\n\n"
              "Якщо хочете — залиште відгук або запишіться на наступну сесію."),
             reply_markup=review_kb.as_markup()
         )
     except Exception:
         pass
-
 
 # ── Ответ клиенту от психолога ────────────────────────────────────────────────
 
