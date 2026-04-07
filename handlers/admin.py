@@ -615,38 +615,27 @@ async def adm_client_card(callback: CallbackQuery):
     emojis = {1: "😢", 2: "😔", 3: "😐", 4: "🙂", 5: "😊"}
     mood_str = f"{emojis.get(stats['last_mood'], '—')} {stats['last_mood']}/5" if stats['last_mood'] else "—"
 
-    text = (
-        f"📊 Карточка клиента
-
-"
-        f"👤 {info.get('name', uid)}
-"
-        f"🆔 {uid}
-"
-        f"🌍 {tz_label}
-"
-        f"🗣 Язык: {info.get('lang', '—')}
-
-"
-        f"📅 Всего записей: {stats['total']}
-"
-        f"✅ Оплачено: {stats['paid']}
-"
-        f"🏁 Завершено сессий: {stats['completed']}
-"
-        f"😊 Последнее настроение: {mood_str}
-
-"
+       text = (
+        f"📊 Карточка клиента\n\n"
+        f"👤 {info.get('name', uid)}\n"
+        f"🆔 {uid}\n"
+        f"🌍 {tz_label}\n"
+        f"🗣 Язык: {info.get('lang', '—')}\n\n"
+        f"📅 Всего записей: {stats['total']}\n"
+        f"✅ Оплачено: {stats['paid']}\n"
+        f"🏁 Завершено сессий: {stats['completed']}\n"
+        f"😊 Последнее настроение: {mood_str}\n\n"
     )
-    if q:
-        text += f"📋 Анкета:
-• Тема: {q['goal']}
-• Запрос: {q['request']}
-• Источник: {q['source']}
 
-"
-    text += f"📝 Заметка:
-{note}" if note else "📝 Заметок нет."
+    if q:
+        text += (
+            f"📋 Анкета:\n"
+            f"• Тема: {q['goal']}\n"
+            f"• Запрос: {q['request']}\n"
+            f"• Источник: {q['source']}\n\n"
+        )
+
+    text += f"📝 Заметка:\n{note}" if note else "📝 Заметок нет."
 
     kb = InlineKeyboardBuilder()
     kb.button(text="✏️ Заметка", callback_data=f"adm_note_edit_{uid}")
