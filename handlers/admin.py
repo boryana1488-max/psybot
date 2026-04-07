@@ -615,7 +615,8 @@ async def adm_client_card(callback: CallbackQuery):
     emojis = {1: "😢", 2: "😔", 3: "😐", 4: "🙂", 5: "😊"}
     mood_str = f"{emojis.get(stats['last_mood'], '—')} {stats['last_mood']}/5" if stats['last_mood'] else "—"
 
-       text = (
+    # ←←← Вот правильный блок с отступами
+    text = (
         f"📊 Карточка клиента\n\n"
         f"👤 {info.get('name', uid)}\n"
         f"🆔 {uid}\n"
@@ -630,9 +631,9 @@ async def adm_client_card(callback: CallbackQuery):
     if q:
         text += (
             f"📋 Анкета:\n"
-            f"• Тема: {q['goal']}\n"
-            f"• Запрос: {q['request']}\n"
-            f"• Источник: {q['source']}\n\n"
+            f"• Тема: {q.get('goal', '')}\n"
+            f"• Запрос: {q.get('request', '')}\n"
+            f"• Источник: {q.get('source', '')}\n\n"
         )
 
     text += f"📝 Заметка:\n{note}" if note else "📝 Заметок нет."
@@ -642,8 +643,8 @@ async def adm_client_card(callback: CallbackQuery):
     kb.button(text="💬 Написать", callback_data=f"adm_reply_{uid}")
     kb.button(text="◀️ Назад", callback_data=f"adm_note_view_{uid}")
     kb.adjust(2, 1)
-    await callback.message.edit_text(text, reply_markup=kb.as_markup())
 
+    await callback.message.edit_text(text, reply_markup=kb.as_markup())
 
 # ── Закрытие сессии ───────────────────────────────────────────────────────────
 
